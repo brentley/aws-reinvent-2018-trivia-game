@@ -95,11 +95,11 @@ class TriviaBackendStack extends cdk.Stack {
 
 const app = new cdk.App();
 new TriviaBackendStack(app, 'TriviaBackendTest', {
-  domainName: 'api-test.reinvent-trivia.com',
-  domainZone: 'reinvent-trivia.com'
+  domainName: 'api-test.container.fan',
+  domainZone: 'container.fan'
 });
 new TriviaBackendStack(app, 'TriviaBackendProd', {
-  domainName: 'api.reinvent-trivia.com',
-  domainZone: 'reinvent-trivia.com'
+  domainName: 'api.container.fan',
+  domainZone: 'container.fan'
 });
 app.run();
