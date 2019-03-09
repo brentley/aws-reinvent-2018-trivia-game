@@ -17,7 +17,7 @@ class TriviaGameStaticSitePipeline extends cdk.Stack {
         const githubAccessToken = new cdk.SecretParameter(this, 'GitHubToken', { ssmParameter: 'GitHubToken' });
         const source = new codepipeline.GitHubSourceAction(this, 'GitHubSource', {
             stage: pipeline.addStage('Source'),
-            owner: 'aws-samples',
+            owner: 'brentley',
             repo: 'aws-reinvent-2018-trivia-game',
             oauthToken: githubAccessToken.value
         });
@@ -28,11 +28,11 @@ class TriviaGameStaticSitePipeline extends cdk.Stack {
 
         // Test
         const testStage = pipeline.addStage('Test');
-        this.addBuildAction(testStage, 'Test', 'test', 'test.reinvent-trivia.com', source.outputArtifact);
+        this.addBuildAction(testStage, 'Test', 'test', 'test.container.fan', source.outputArtifact);
 
         // Prod
         const prodStage = pipeline.addStage('Prod');
-        this.addBuildAction(prodStage, 'Prod', 'prod', 'www.reinvent-trivia.com', source.outputArtifact);
+        this.addBuildAction(prodStage, 'Prod', 'prod', 'www.container.fan', source.outputArtifact);
     }
 
     private addBuildAction(stage: codepipeline.Stage, stageName: string, buildTarget: string, websiteBucket: string, input: codepipelineApi.Artifact) {
