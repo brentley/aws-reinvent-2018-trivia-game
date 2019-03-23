@@ -24,7 +24,7 @@ Replace all references to 'aws-samples' with your own fork of this repo.  Replac
 
 ## Deploy
 
-Install the AWS CDK CLI: `npm i -g aws-cdk`
+Install the AWS CDK CLI: `npm i -g aws-cdk@0.19.0`
 
 Install and build everything: `npm install && npm run build`
 
