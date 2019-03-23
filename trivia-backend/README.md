@@ -12,12 +12,12 @@ aws ecr create-repository --repository-name reinvent-trivia-backend
 aws ecr create-repository --repository-name reinvent-trivia-backend-base
 ```
 
-Create AWS Certificate Manager certificates for the 'api' and 'test-api' subdomains, then put the unique ARN of those certificates in an AWS Systems Manager Parameter Store parameter.
+Create AWS Certificate Manager certificates for the 'api' and 'api-test' subdomains, then put the unique ARN of those certificates in an AWS Systems Manager Parameter Store parameter.
 
 ```
 aws ssm put-parameter --name CertificateArn-api.reinvent-trivia.com --type String --value arn:aws:acm:...
 
-aws ssm put-parameter --name CertificateArn-test-api.reinvent-trivia.com --type String --value arn:aws:acm:...
+aws ssm put-parameter --name CertificateArn-api-test.reinvent-trivia.com --type String --value arn:aws:acm:...
 ```
 
 ## Customize
